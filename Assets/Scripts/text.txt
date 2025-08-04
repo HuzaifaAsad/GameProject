@@ -1,0 +1,96 @@
+===============================
+C# Arrays and Lists - Unity Cheat Sheet
+===============================
+
+-------------------------------
+Arrays in Unity C#
+-------------------------------
+
+Array Declaration & Initialization:
+int[] numbers = new int[5];
+string[] names = { "Ali", "Sara", "John" };
+Vector3[] positions = new Vector3[3];
+
+Common Operations:
+- array.Length           // Get size
+- array[i]               // Access element
+- array[i] = value       // Assign value
+
+Looping:
+for (int i = 0; i < array.Length; i++) {
+    Debug.Log(array[i]);
+}
+
+foreach (var item in array) {
+    Debug.Log(item);
+}
+
+Useful Methods (System.Array):
+- Array.Sort(array)
+- Array.Reverse(array)
+- Array.IndexOf(array, value)
+- Array.Clear(array, startIndex, count)
+- Array.Copy(source, dest, length)
+- Array.Exists(array, condition)
+- Array.Find(array, condition)
+- Array.FindAll(array, condition)
+- Array.ForEach(array, action)
+
+Example:
+int[] scores = { 10, 20, 30 };
+Array.Sort(scores);
+Array.ForEach(scores, s => Debug.Log(s));
+
+
+-------------------------------
+Lists in Unity C#
+-------------------------------
+
+List Declaration & Initialization:
+List<int> numbers = new List<int>() { 1, 2, 3 };
+List<string> names = new List<string>();
+List<Vector3> positions = new List<Vector3>();
+
+Common Operations:
+- list.Count             // Get size
+- list.Add(item)         // Add item
+- list.Remove(item)      // Remove item
+- list[i]                // Access item
+- list.Clear()           // Empty the list
+
+Looping:
+for (int i = 0; i < list.Count; i++) {
+    Debug.Log(list[i]);
+}
+
+foreach (var item in list) {
+    Debug.Log(item);
+}
+
+list.ForEach(item => Debug.Log(item));
+
+Example with GameObjects:
+List<GameObject> enemies = new List<GameObject>();
+foreach (GameObject enemy in enemies) {
+    enemy.SetActive(false);
+}
+
+Example with Vector3:
+List<Vector3> points = new List<Vector3>();
+points.Add(new Vector3(0, 1, 2));
+foreach (Vector3 point in points) {
+    Debug.Log(point);
+}
+
+
+-------------------------------
+Array vs List Summary
+-------------------------------
+
+| Feature       | Array               | List<T>               |
+|---------------|---------------------|-----------------------|
+| Size          | Fixed               | Dynamic               |
+| Add/Remove    | Not supported       | Add(), Remove()       |
+| Performance   | Slightly faster     | Slightly more overhead|
+| Access        | array[i]            | list[i]               |
+| Flexibility   | Low                 | High                  |
